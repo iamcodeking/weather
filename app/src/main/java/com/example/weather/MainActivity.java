@@ -40,10 +40,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    
+    
     public void getdata()
-
-    { String place= editText.getText().toString();
+    { 
+        String place= editText.getText().toString();
+        
+        //url to get weather of a particular place in india 
+        //passing a query parameter (place) selected by user in text field
+        
         String url="http://api.openweathermap.org/data/2.5/weather?q="+place+",india&appid=90ebb1d21627a4cdb6b3117daa901f14";
+        
+        //sending get request to the url and taking response as JsonObject
+        
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
